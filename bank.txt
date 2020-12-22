@@ -1,0 +1,80 @@
+
+import random
+
+class Bankaccount:
+    def __init__(self,acc_no,name,cnic):
+        self.name=name
+        self.acc_no=acc_no
+        self.cnic=cnic
+        self.balance=0
+
+    def deposit(self,amount):
+        self.balance=self.balance+amount
+        print("Your Balance after deposit is %s ."% self.balance)
+
+    def withdraw(self,amount):
+        if amount<=self.balance:
+            self.balance=self.balance-amount
+            print("Your balance after withdrawal  %s ."% self.balance)
+        else:
+            print("insuficient balance ")
+
+    def acc_details(self):
+        print("Account No : %s" % self.acc_no)
+        print("Account Holder Name : " + self.name)
+        print("Account Holder CNIC : %s" % self.cnic)
+        print("Current Balance  : %s " % self.balance)
+
+# print("1)Open a new  account ")
+# print("2)Deposit Money ")
+# print("3)Withdraw Money ")
+# print("4)Check account Balance")
+#
+# choice=input("Please Enter here to continue : ")
+
+def again():
+    print("1)To deposit money")
+    print("2)To withdraw money")
+    print("3)Check details")
+
+    choice = int(input("Chose an Option : "))
+
+
+acc= random.randint(1, 500)
+name = input("Enter Your Name : ")
+cnic = int(input("Enter CNIC NO : "))
+a1 = Bankaccount(acc,name,cnic)
+
+print("1)To deposit money")
+print("2)To withdraw money")
+print("3)Check details")
+
+choice=int(input("Chose an Option : "))
+
+
+if choice==1:
+    amount = float(input("Enter the amount to be deposit : "))
+    a1.deposit(amount)
+
+
+if choice==2:
+    amount = float(input("Enter the amount to be withdraw : "))
+    a1.withdraw(amount)
+
+if choice==3:
+    a1.acc_details()
+
+
+#
+
+#
+# if choice=='2':
+#     amount=float(input("Enter the amount to be deposit"))
+#     a1.deposit(amount)
+# if choice=='3':
+#     amount=float(input("Enter the amount to be withdraw :"))
+#     a1.withdraw()
+# acc=random.randint(1,500)
+# name=input("Enter Your Name : ")
+# a1=Bankaccount(acc,name)
+# a1.acc_details()
